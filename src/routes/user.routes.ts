@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response, Router } from "express";
-import { isThrowStatement, updateExternalModuleReference } from "typescript";
 import { UserService } from "../service/user.service";
 
 export const UserRouter = (router: Router, service: UserService) => {

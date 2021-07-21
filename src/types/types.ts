@@ -1,6 +1,7 @@
 export interface ITodo {
   title: string;
   content: string;
+  user: IUser;
 }
 
 export interface IUser {
