@@ -115,7 +115,7 @@ var TodoRouter = function (router, service) {
                     _b.label = 1;
                 case 1:
                     _b.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, service.updateTodo(id, newTodo)];
+                    return [4 /*yield*/, service.updateTodo(id, updatedTodo)];
                 case 2:
                     data = _b.sent();
                     return [2 /*return*/, res.status(204).json(data)];
