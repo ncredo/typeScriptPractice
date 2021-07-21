@@ -1,2 +1,2 @@
-# typeScriptPractice
+# codeSandboxPractice
 Created with CodeSandbox
