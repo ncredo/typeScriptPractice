@@ -63,7 +63,7 @@ var UserRouter = function (router, service) {
             }
         });
     }); });
-    router.get('/users', function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+    router.get("/users", function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
         var data, error_2;
         return __generator(this, function (_a) {
             switch (_a.label) {

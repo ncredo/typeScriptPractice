@@ -1,7 +1,9 @@
+import { ObjectId } from 'mongodb';
+
 export interface ITodo {
   title: string;
   content: string;
-  user: IUser;
+  user: ObjectId;
 }
 
 export interface IUser {

@@ -37,15 +37,21 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TodoRouter = void 0;
+var mongodb_1 = require("mongodb");
 var TodoRouter = function (router, service) {
     router.post("/todo", function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-        var _a, title, content, data, error_1;
+        var _a, title, content, user, newTodo, data, error_1;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     _b.trys.push([0, 2, , 3]);
-                    _a = req.body, title = _a.title, content = _a.content;
-                    return [4 /*yield*/, service.createTodo({ title: title, content: content })];
+                    _a = req.body, title = _a.title, content = _a.content, user = _a.user;
+                    newTodo = {
+                        title: title,
+                        content: content,
+                        user: new mongodb_1.ObjectId(user)
+                    };
+                    return [4 /*yield*/, service.createTodo(newTodo)];
                 case 1:
                     data = _b.sent();
                     return [2 /*return*/, res.status(201).json(data)];
@@ -95,16 +101,21 @@ var TodoRouter = function (router, service) {
         });
     }); });
     router.put("/todo/:id", function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-        var id, _a, title, content, data, error_4;
+        var id, _a, title, content, user, updatedTodo, data, error_4;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     id = req.params.id;
-                    _a = req.body, title = _a.title, content = _a.content;
+                    _a = req.body, title = _a.title, content = _a.content, user = _a.user;
+                    updatedTodo = {
+                        title: title,
+                        content: content,
+                        user: new mongodb_1.ObjectId(user)
+                    };
                     _b.label = 1;
                 case 1:
                     _b.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, service.updateTodo(id, { title: title, content: content })];
+                    return [4 /*yield*/, service.updateTodo(id, newTodo)];
                 case 2:
                     data = _b.sent();
                     return [2 /*return*/, res.status(204).json(data)];

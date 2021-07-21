@@ -20,12 +20,15 @@ export const UserRouter = (router: Router, service: UserService) => {
     }
   );
 
-  router.get('/users', async (req: Request, res: Response, next: NextFunction) => {
-    try {
-      const data = await service.getUsers();
-      return res.status(200).json(data);
-    } catch (error) {
-      throw error;
+  router.get(
+    "/users",
+    async (req: Request, res: Response, next: NextFunction) => {
+      try {
+        const data = await service.getUsers();
+        return res.status(200).json(data);
+      } catch (error) {
+        throw error;
+      }
     }
-  })
+  );
 };
