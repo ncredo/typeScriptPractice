@@ -47,6 +47,8 @@ export class DBManager implements ITodoDBManager, IUserDBManager {
   }
   public async fetchAllTodo(): Promise<any> {
     const db = getDB();
+    const todos = await db?.collection("todos").count();
+    console.log(`There are ${todos} todos in the database`);
     try {
       const todos = await db?.collection("todos").find().toArray();
       return todos;
